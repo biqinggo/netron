@@ -951,12 +951,14 @@ $root.mindspore.schema.BatchNormGrad = class BatchNormGrad {
     static decode(reader, position) {
         const $ = new $root.mindspore.schema.BatchNormGrad();
         $.epsilon = reader.float32_(position, 4, 0);
+        $.is_training = reader.bool_(position, 6, false);
         return $;
     }
 
     static decodeText(reader, json) {
         const $ = new $root.mindspore.schema.BatchNormGrad();
         $.epsilon = reader.value(json.epsilon, 0);
+        $.is_training = reader.value(json.is_training, false);
         return $;
     }
 };
